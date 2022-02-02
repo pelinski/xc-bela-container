@@ -2,11 +2,6 @@
 source build_settings
 BBB_ADDRESS=root@$BBB_HOSTNAME
 
-grep 'docker\|lxc' /proc/1/cgroup > /dev/null 2>&1 || {
-    echo This script should only be called in a container. Consult the README for instructions
-    exit 1
-}
-
 # pre-register ssh key
 mkdir ~/.ssh
 ssh-keyscan $BBB_HOSTNAME >> ~/.ssh/known_hosts

@@ -1,8 +1,4 @@
 #!/bin/bash -e
-grep 'docker\|lxc' /proc/1/cgroup > /dev/null 2>&1 || {
-    echo This script should only be called in a container. Consult the README for instructions
-    exit 1
-}
 
 apt-get update
 apt-get install -y wget gpg apt-utils #apt-transport-https ca-certificates
@@ -26,7 +22,8 @@ apt-get install --no-install-recommends -y \
 	rsync \
 	ssh \
 	cmake \
-	git
+	git \
+	gdb
 rm -rf /var/lib/apt/lists/*
 
 echo "Finishing up..."

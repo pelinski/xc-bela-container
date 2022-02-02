@@ -3,7 +3,7 @@
 {
 	"name": "xc-bela",
 	"context": ".",
-	"image": "ebai101/xc-bela:latest",
+	"image": "rodrigodzf/xc-bela:latest",
 	"workspaceFolder": "/workspace",
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
@@ -24,6 +24,7 @@
 		"llvm-vs-code-extensions.vscode-clangd",
 		"webfreak.debug",
 		"twxs.cmake",
-		"ms-vscode.cmake-tools"
+		"ms-vscode.cmake-tools",
+		"ms-vscode.cpptools"
 	]
 }

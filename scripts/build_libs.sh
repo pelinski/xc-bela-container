@@ -1,5 +1,7 @@
-#! /bin/bash
+#!/bin/bash -e
+
 source build_settings
+BBB_ADDRESS=root@$BBB_HOSTNAME
 
 # set date and build libraries
 ssh-keygen -R $1 &> /dev/null || true

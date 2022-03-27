@@ -17,6 +17,8 @@ apt-get install --no-install-recommends -y \
 	linux-libc-dev-armhf-cross \
 	g++-10-arm-linux-gnueabihf \
 	gcc-10-arm-linux-gnueabihf \
+	gcc-arm-linux-gnueabihf \
+	g++-arm-linux-gnueabihf \
 	binutils-arm-linux-gnueabihf \
 	build-essential \
 	rsync \

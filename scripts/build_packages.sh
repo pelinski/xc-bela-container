@@ -15,7 +15,7 @@ apt-get install --no-install-recommends -y \
 	ninja-build \
 	coreutils \
 	linux-libc-dev-armhf-cross \
-	cpp-10-arm-linux-gnueabihf \
+	g++-10-arm-linux-gnueabihf \
 	gcc-10-arm-linux-gnueabihf \
 	binutils-arm-linux-gnueabihf \
 	build-essential \

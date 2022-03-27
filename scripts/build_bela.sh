@@ -6,6 +6,10 @@ BBB_ADDRESS=root@$BBB_HOSTNAME
 mkdir ~/.ssh
 ssh-keyscan $BBB_HOSTNAME >> ~/.ssh/known_hosts
 
+# system
+rsync -rzLR --safe-links --out-format="   %n" $BBB_ADDRESS:/usr/lib/arm-linux-gnueabihf /sysroot
+rsync -rzLR --safe-links --out-format="   %n" $BBB_ADDRESS:/usr/include /sysroot
+
 # xenomai
 mkdir -p ./sysroot/usr/xenomai/include
 mkdir -p ./sysroot/usr/xenomai/lib

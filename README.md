@@ -1,6 +1,6 @@
 # xc-bela-container
 
-Docker image/VSCode environment for [Bela](https://bela.io/) development and cross-compilation. Uses Clang 10, CMake and Ninja for a fast and modular builds.
+Docker image/VSCode environment for [Bela](https://bela.io/) development and cross-compilation. Uses GCC 10, CMake and Make for a fast and modular builds.
 
 By containerizing the cross-compilation toolchain, Bela code can be written and compiled on any host OS that can run Docker, and is compiled much faster and with more flexibility than in the Bela IDE. The VSCode environment is also set up for running GDB over SSH, allowing you to debug your Bela programs in the editor.
 
@@ -21,7 +21,7 @@ Open the repo folder in VSCode and run the command `Remote-Containers: Reopen in
 The workspace is stored as a Docker volume to improve disk performance, so it will be empty by default. There's a template repo to get you running quickly, so open an integrated terminal in VSCode (the command is `Terminal: Create New Integrated Terminal`) and clone the template repo:
 
 ```shell
-git clone --recurse-submodules https://github.com/ebai101/xc-bela-bootstrap.git
+git clone --recurse-submodules https://github.com/rodrigodzf/DeepLearningForBela
 ```
 
 The workspace will contain a workspace file called `xc-bela-boostrap.code-workspace`, click on that and choose "Open Workspace." The window will reload and CMake should automatically reconfigure the project. (If it shows an error that says "error: unknown target CPU 'armv7-a'", that's just a bug in the script - run the configuration again and it should work.)

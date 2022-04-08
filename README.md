@@ -24,7 +24,7 @@ The workspace is stored as a Docker volume to improve disk performance, so it wi
 git clone --recurse-submodules https://github.com/rodrigodzf/DeepLearningForBela
 ```
 
-The workspace will contain a workspace file called `xc-bela-boostrap.code-workspace`, click on that and choose "Open Workspace." The window will reload and CMake should automatically reconfigure the project. (If it shows an error that says "error: unknown target CPU 'armv7-a'", that's just a bug in the script - run the configuration again and it should work.)
+<!-- The workspace will contain a workspace file called `xc-bela-boostrap.code-workspace`, click on that and choose "Open Workspace." The window will reload and CMake should automatically reconfigure the project. (If it shows an error that says "error: unknown target CPU 'armv7-a'", that's just a bug in the script - run the configuration again and it should work.) -->
 
 You can use the CMake extension to configure and build now, or do it from the terminal:
 

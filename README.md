@@ -10,15 +10,27 @@ This repo is set up to run the image as a VSCode development container. It shoul
 
 ### Quickstart
 
+(Note: These instructions have been tested with the Bela `v0.5.0alpha` experimental [image](https://github.com/BelaPlatform/bela-image-builder/releases/tag/v0.5.0alpha2).)
+
 Install [Docker](https://docs.docker.com/get-docker/) and the [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) extensions, if you haven't already. Clone the repo to your machine:
 
 ```shell
 git clone --recurse-submodules https://github.com/rodrigodzf/xc-bela-container.git
 ```
 
-Open the repo folder in VSCode and run the command `Remote-Containers: Reopen in Container`  or click the popup when prompted. This will download the image, install a few extensions and attach the editor to the container.
+Open the repo folder in VSCode and run the command `Remote-Containers: Reopen in Container` or click the popup when prompted. This will download the image, install a few extensions and attach the editor to the container.
 
-The workspace is stored as a Docker volume to improve disk performance, so it will be empty by default. There's a template repo to get you running quickly, so open an integrated terminal in VSCode (the command is `Terminal: Create New Integrated Terminal`) and clone the template repo:
+At this stage, you can connect your Bela to your host machine. If you are using a Bela IP address different than the default one (`192.168.7.2`) you will need to modify it in the `.devcontainer/devcontainer.env` file and restart the container.
+
+For the crosscompiled binaries to run in your Bela, you will need to copy the `libbelafull.so` and `armnn-dist` libraries from the Docker container into your Bela. You can do by opening an integrated terminal in VSCode (the command is `Terminal: Create New Integrated Terminal`) and typing:
+
+```shell
+scp /sysroot/root/Bela/lib/libbelafull.so root@$BBB_HOSTNAME:Be
+la/lib/libbelafull.so
+scp -r /opt/armnn-dist/ root@$BBB_HOSTNAME:/opt/armnn-dist/
+```
+
+The workspace is stored as a Docker volume to improve disk performance, so it will be empty by default. There's a template repo to get you running quickly, so, in the integrated terminal, clone the template repo:
 
 ```shell
 git clone --recurse-submodules https://github.com/rodrigodzf/DeepLearningForBela
@@ -52,7 +64,7 @@ Some others you may want to install locally:
 - [PASM Syntax](https://github.com/ebai101/pasm-syntax) - syntax highlighting for PRU assembly
 - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) - helpful for managing containers in general, also provides syntax highlighting for Dockerfiles
 
-Extensions are stored on a Docker volume, so they will persist through container rebuilds - so you shouldn't need to edit `devcontainer.json` to add extensions, just install them normally. 
+Extensions are stored on a Docker volume, so they will persist through container rebuilds - so you shouldn't need to edit `devcontainer.json` to add extensions, just install them normally.
 
 ### Environment Variables
 
@@ -65,7 +77,7 @@ You can set any other variables you wish in this file; they will all be sourced 
 
 ## Building the Image
 
-You don't usually need to build the image - Docker will pull it from Docker Hub automatically when you open the dev container for the first time. However, if you want to make changes that will persist across container boots, you can rebuild the image yourself. ***Note: These instructions are written for macOS/Linux.***
+You don't usually need to build the image - Docker will pull it from Docker Hub automatically when you open the dev container for the first time. However, if you want to make changes that will persist across container boots, you can rebuild the image yourself. **_Note: These instructions are written for macOS/Linux._**
 
 First, make sure your Bela is connected - you'll need to copy some headers and libraries from it and compile the `libbelafull` static library. Open `scripts/build_settings` and change `BBB_HOSTNAME` to the IP address of your connected Bela.
 
@@ -105,4 +117,3 @@ All credit for the Bela code goes to Bela and Augmented Instruments Ltd. As per 
 The cross-compiler setup is based on/inspired by TheTechnoBear's [xcBela](https://github.com/TheTechnobear/xcBela). Initially I was working on this as a fork of his repo - many thanks to him for laying the groundwork.
 
 Also of note is Andrew Capon's [OSXBelaCrossCompiler](https://github.com/AndrewCapon/OSXBelaCrossCompiler) and the related [Bela Wiki](https://github.com/BelaPlatform/Bela/wiki/Compiling-Bela-projects-in-Eclipse) page for Eclipse.
-

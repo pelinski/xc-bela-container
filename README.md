@@ -29,7 +29,7 @@ This repo is set up to run the image as a VSCode development container. It shoul
     ```shell
     git clone https://github.com/anon80999/b31a-m0d31-1nf3r3nc3.git
     ```
-    you should also copy the TFLite model, obtained after step 3, inside of the cloned repo. 
+    you should also copy your trained TFLite model inside of the cloned repo. If you followed the pipeline steps, this is the `.tflite` file which contains the trained model after [step 3](https://github.com/pelinski/bela-dl-pipeline) (`3-host_model-training`).
 
 6. You can use the CMake extension to configure and build now, or do it from the terminal:
 

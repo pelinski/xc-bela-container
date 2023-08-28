@@ -18,4 +18,12 @@ RUN apt-get update && \
 
 RUN pip3 install torch
 
-CMD /bin/bash
+WORKDIR /workspace
+
+RUN git clone https://github.com/pelinski/pyBela-AIMC-tutorial.git
+
+WORKDIR /workspace/pyBela-AIMC-tutorial
+
+RUN pipenv install
+
+CMD [ "pipenv", "run","jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]

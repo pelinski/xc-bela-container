@@ -16,6 +16,6 @@ RUN apt-get update && \
 				python3 \
 				pipenv
 
-RUN pip3 install tensorflow torch
+RUN pip3 install torch
 
 CMD /bin/bash

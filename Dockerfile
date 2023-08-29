@@ -1,3 +1,4 @@
+# Connect Bela and checkout https://github.com/pelinski/Bela/tree/feat/configureSampleRate
 FROM debian:bullseye
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -26,4 +27,5 @@ RUN pipenv install
 
 RUN pipenv run pip3 install torch --index-url https://download.pytorch.org/whl/cpu
 
-CMD [ "pipenv", "run","jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+# CMD [ "pipenv", "run","jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+CMD /bin/bash

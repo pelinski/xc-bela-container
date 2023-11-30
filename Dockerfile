@@ -1,4 +1,4 @@
-# Connect Bela and checkout https://github.com/pelinski/Bela/tree/feat/configureSampleRate
+# Connect Bela and checkout https://github.com/pelinski/Bela/tree/xc
 FROM debian:bullseye
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -13,19 +13,17 @@ RUN ./build_bela.sh && rm build_bela.sh && rm build_settings
 RUN ./build_env.sh && rm build_env.sh
 
 RUN apt-get update && \
-      apt-get install -y \
-				python3 \
-				pipenv
+      apt-get install -y python3 pipenv
 
 WORKDIR /workspace
 
-RUN git clone https://github.com/pelinski/pyBela-AIMC-tutorial.git
+RUN git clone --recurse-submodules -j8  https://github.com/pelinski/pybela-AIMC-tutorial.git
 
-WORKDIR /workspace/pyBela-AIMC-tutorial
+WORKDIR /workspace/pybela-AIMC-tutorial
 
 RUN pipenv install
 
-RUN pipenv run pip3 install torch --index-url https://download.pytorch.org/whl/cpu
+RUN pipenv run pip3 install torch 
 
 # CMD [ "pipenv", "run","jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
 CMD /bin/bash

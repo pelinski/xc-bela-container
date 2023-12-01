@@ -17,9 +17,9 @@ RUN apt-get update && \
 
 WORKDIR /workspace
 
-RUN git clone --recurse-submodules -j8  https://github.com/pelinski/pybela-AIMC-tutorial.git
+RUN git clone --recurse-submodules -j8  https://github.com/pelinski/pybela-pytorch-xc-tutorial.git
 
-WORKDIR /workspace/pybela-AIMC-tutorial
+WORKDIR /workspace/pybela-pytorch-xc-tutorial
 
 RUN pipenv install
 

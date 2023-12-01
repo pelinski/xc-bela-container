@@ -7,10 +7,10 @@ Docker image for [Bela](https://bela.io/) development and cross-compilation. Use
 **You can pull this container's built image from the Docker image hub:**
 
 ```bash
-docker pull pelinski/xc-bela-container:aimc2023
+docker pull pelinski/xc-bela-container:v0.1.1
 ```
 
-This container includes a the [pybela + pytorch cross-compilation tutorial](https://github.com/pelinski/pybela-AIMC-tutorial.git) which you can use as template (If you do not wish to include this when building the container yourself, remove lines 16-26 from `Dockerfile`). This tutorial will show you how to record a dataset, train a simple model in pytorch and cross-compile the Bela code, all from a jupyter notebook.
+This container includes the [pybela + pytorch cross-compilation tutorial](https://github.com/pelinski/pybela-pytorch-xc-tutorial) which you can use as template (If you do not wish to include this when building the container yourself, remove lines 16-26 from `Dockerfile`). This tutorial will show you how to configure your Bela, record a dataset, train a simple model in pytorch and cross-compile the Bela code, all from a jupyter notebook.
 
 Below are the instructions to build the container locally:
 
@@ -80,7 +80,7 @@ and try again.
 You can run the docker container using
 
 ```bash
-docker build -t xc-bela . 
+docker build -t xc-bela .
 ```
 
 (it will take a while). Once the container is built you can access it with:

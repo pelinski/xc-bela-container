@@ -7,7 +7,7 @@ Docker image for [Bela](https://bela.io/) development and cross-compilation. Use
 **You can pull this container's built image from the Docker image hub:**
 
 ```bash
-docker pull pelinski/xc-bela-container:v0.1.1
+docker pull pelinski/xc-bela-container:v0.1.3
 ```
 
 This container includes the [pybela + pytorch cross-compilation tutorial](https://github.com/pelinski/pybela-pytorch-xc-tutorial) which you can use as template (If you do not wish to include this when building the container yourself, remove lines 16-26 from `Dockerfile`). This tutorial will show you how to configure your Bela, record a dataset, train a simple model in pytorch and cross-compile the Bela code, all from a jupyter notebook.
@@ -27,7 +27,7 @@ cd xc-bela-container
 
 ### Set up your Bela
 
-To build this container, you need to connect your Bela to your laptop. If your Bela address is not `192.168.7.2`, update it in `.devcontainer/devcontainer.env`.
+To build this container, you need to connect your Bela to your laptop. If your Bela address is not `192.168.7.2` (e.g., in Windows it's `192.168.6.2`), update it in `.devcontainer/devcontainer.env`.
 
 You will need the Bela experimental image `v0.5.0alpha2` which can be downloaded here https://github.com/BelaPlatform/bela-image-builder/releases/tag/v0.5.0alpha2. Follow the instructions [here](https://learn.bela.io/using-bela/bela-techniques/managing-your-sd-card/#flash-an-sd-card-using-balena-etcher) to flash that image onto your Bela.
 

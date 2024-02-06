@@ -1,4 +1,4 @@
 [submodule "Bela"]
 	path = Bela
 	url = git@github.com:pelinski/Bela.git
-	branch = xc
+	branch = pybela-xc

@@ -21,6 +21,6 @@ COPY scripts/build_bela.sh ./
 RUN ./build_bela.sh && rm build_bela.sh && rm build_settings
 
 WORKDIR /workspace
-COPY Toolchain.cmake workspace/
+COPY Toolchain.cmake ./
 
 CMD /bin/bash

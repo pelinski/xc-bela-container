@@ -1,4 +1,4 @@
-# Connect Bela and checkout https://github.com/pelinski/Bela/tree/xc
+# NEEDS TO RUN WITH BELA CONNECTED TO THE HOST
 FROM debian:bullseye
 ENV DEBIAN_FRONTEND noninteractive
 

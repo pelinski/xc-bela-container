@@ -10,8 +10,8 @@ wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 apt-get update
 
 apt-get install --no-install-recommends -y \
-	clang \
-	clangd \
+	clang-20 \
+	clangd-20 \
 	ninja-build \
 	coreutils \
 	linux-libc-dev-armhf-cross \

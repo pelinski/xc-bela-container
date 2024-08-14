@@ -48,7 +48,7 @@ docker start -ia bela-container
 
 <!-- -p 8888:8888 -->
 ## Usage tutorial
-In this quick tutorial we will cross-compile the `example-project` in this repo. 
+In this quick tutorial we will cross-compile the `example-project` in this repo (it's the Bela `fundamentals/sinetone` example).
 
 ### Copy libbelafull.so to Bela
 
@@ -74,24 +74,23 @@ You can cross-compile a project by running the following commands inside the doc
 
 ```shell
 cd /workspace/example-project
-mkdir build
-cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=/workspace/Toolchain.cmake ../ # correct this relative path if needed
+mkdir build && cd build
+cmake -DCMAKE_TOOLCHAIN_FILE=/workspace/Toolchain.cmake ../
 cmake --build .
 ```
 
 You can then copy the compiled project to Bela by running:
 
 ```bash
-rsync --timeout=10 -avzP build/project-name root@$BBB_HOSTNAME:~/Bela/projects/project-name
+rsync --timeout=10 -avzP /workspace/example-project/build/sinetone root@192.168.7.2:~/Bela/projects/sinetone
 ```
 
 You can now run the project in Bela:
 
 ```bash
 ssh root@bela.local
-cd Bela/projects/project-name
-./project-name
+cd Bela/projects
+./sinetone
 ```
 
 ## Credits

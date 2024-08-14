@@ -4,7 +4,7 @@ Docker image for [Bela](https://bela.io/) development and cross-compilation. Use
 
 ## Quickstart
 
-**You can pull this container's built image from the Docker image hub:**
+**You can pull the xc-bela-container image from the Docker image hub:**
 
 ```bash
 docker pull pelinski/xc-bela-container:v1.0.0 

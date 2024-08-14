@@ -2,16 +2,20 @@
 
 Docker image for [Bela](https://bela.io/) development and cross-compilation. Uses GCC 10, CMake and Make for a fast and modular build. By containerizing the cross-compilation toolchain, Bela code can be written and compiled on any host OS that can run Docker, and is compiled much faster and with more flexibility than in the Bela IDE. 
 
-<!-- ## Quickstart
+## Quickstart
 
 **You can pull this container's built image from the Docker image hub:**
 
-built with v0.3.8h 
+```bash
+docker pull pelinski/xc-bela-container:v1.0.0 
+```
+There are images for both `amd64` and `arm64` architectures, the pull command will pull the correct one for your machine. If you are on a different machine you will have to build the image yourself (see below).
+
+You can then start a container with (replace the `BBB_HOSTNAME` with the IP address of your Bela – if you are on Windows, it's `192.168.6.2`):
 
 ```bash
-docker pull pelinski/xc-bela-container:v0.1.3
+docker run -it --name bela-container -e BBB_HOSTNAME=192.168.7.2 pelinski/xc-bela-container:v1.0.0
 ```
--->
 
 ## Building the docker image and starting a container
 
@@ -45,8 +49,6 @@ You can quit it with `Ctrl+D` or `exit`. You can start it again with:
 docker start -ia bela-container
 ```
 
-
-<!-- -p 8888:8888 -->
 ## Usage tutorial
 In this quick tutorial we will cross-compile the `example-project` in this repo (it's the Bela `fundamentals/sinetone` example).
 
@@ -91,6 +93,23 @@ You can now run the project in Bela:
 ssh root@bela.local
 cd Bela/projects
 ./sinetone
+```
+
+## Advanced: building docker images for different architectures
+When you build the docker image, it will be built for the architecture of your host machine. If you want to build a docker image for a different architecture, you can use the `buildx` command.
+
+First, you need to enable the `buildx` command. You can do so by running (these commands have been tested on a MacbookPro Intel):
+
+```bash
+docker buildx create --name xc-builder --use --driver docker-container
+docker run --privileged linuxkit/binfmt:v1.0.0
+docker buildx inspect --bootstrap
+```
+
+Then, you can build the image for a different architecture by running (replace the `linux/arm64` with the architecture you want to build for):
+
+```bash
+docker buildx build --platform linux/arm64 --load -t xc-bela .
 ```
 
 ## Credits

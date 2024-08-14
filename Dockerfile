@@ -1,6 +1,10 @@
 # NEEDS TO RUN WITH BELA CONNECTED TO THE HOST
 FROM debian:bullseye
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
+
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+RUN echo "running on $BUILDPLATFORM, building for $TARGETPLATFORM" 
 
 COPY scripts/build_settings ./
 

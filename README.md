@@ -77,7 +77,7 @@ You can cross-compile a project by running the following commands inside the doc
 ```shell
 cd /workspace/example-project
 mkdir build && cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=/workspace/Toolchain.cmake ../
+cmake -DCMAKE_TOOLCHAIN_FILE=/workspace/Toolchain.cmake  -DPROJECT_NAME=sinetone ../
 cmake --build .
 ```
 

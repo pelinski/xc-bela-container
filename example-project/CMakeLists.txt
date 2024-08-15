@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(sinetone) # change this to your project name
+if(NOT DEFINED PROJECT_NAME)
+    set(PROJECT_NAME "project")
+endif()
+
+project(${PROJECT_NAME})
 
 ####################################
 
@@ -44,7 +48,7 @@ find_library(MATHNEON_LIB REQUIRED
 
 ####################################
 
-set(EXE_NAME sinetone)
+set(EXE_NAME ${PROJECT_NAME})
 
 file(GLOB SRC_FILES *.cpp)
 

@@ -25,7 +25,8 @@ apt-get install --no-install-recommends -y \
 	ssh \
 	cmake \
 	git \
-	gdb
+	gdb \
+	nano
 rm -rf /var/lib/apt/lists/*
 
 echo "Finishing up..."

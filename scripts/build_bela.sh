@@ -25,7 +25,6 @@ rsync -avz --out-format="   %n" $BBB_ADDRESS:/root/Bela/include /sysroot/root/Be
 rsync -avz --out-format="   %n" $BBB_ADDRESS:/root/Bela/build/pru/pru_rtaudio_irq_bin.h /sysroot/root/Bela/include
 rsync -avz --out-format="   %n" $BBB_ADDRESS:/root/Bela/build/pru/pru_rtaudio_bin.h /sysroot/root/Bela/include
 rsync -avz --out-format="   %n" $BBB_ADDRESS:/root/Bela/lib /sysroot/root/Bela
-rsync -avz --out-format="   %n" $BBB_ADDRESS:/root/Bela/core/default_main.cpp /sysroot/root/Bela/core/
 
 
 # alsa

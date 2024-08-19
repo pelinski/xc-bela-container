@@ -55,7 +55,7 @@ file(GLOB SRC_FILES *.cpp)
 # If main.cpp is not found, append default_main.cpp
 list(FIND SRC_FILES main.cpp main_index)
 if(main_index EQUAL -1)
-    list(APPEND SRC_FILES /sysroot/root/Bela/core/default_main.cpp)
+    list(APPEND SRC_FILES ${BELA_ROOT}/core/default_main.cpp)
 endif()
 
 add_executable(${EXE_NAME} ${SRC_FILES})

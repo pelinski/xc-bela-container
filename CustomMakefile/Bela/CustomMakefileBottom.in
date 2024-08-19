@@ -1,0 +1,14 @@
+LIB_FULL_SO = libbelafull.so
+LIB_FULL_A = libbelafull.a
+LIB_FULL_OBJS = build/*/*.o libraries/*/build/*.o 
+
+lib/$(LIB_FULL_SO): $(LIB_FULL_OBJS)
+	$(AT) echo Building lib/$(LIB_FULL_SO)
+	$(AT) $(CXX) $(BELA_LDFLAGS) $(LDFLAGS) -shared -Wl,-soname,$(LIB_FULL_SO) -o lib/$(LIB_FULL_SO) $(LIB_FULL_OBJS) $(LDLIBS) $(BELA_EXTRA_LDLIBS)
+	$(AT) ldconfig $(BELA_DIR)/$@
+
+lib/$(LIB_FULL_A): $(LIB_FULL_OBJS) $(PRU_OBJS) $(LIB_DEPS)
+	$(AT) echo Building lib/$(LIB_FULL_A)
+	$(AT) ar rcs lib/$(LIB_FULL_A) $(LIB_FULL_OBJS)
+
+libbelafull: lib/libbelafull.so lib/libbelafull.a 

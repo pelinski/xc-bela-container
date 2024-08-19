@@ -1,1 +1,11 @@
-NO_PROJECT_TARGETS+=lib/libbelafull.a libbelafull
+override CC=arm-linux-gnueabihf-gcc
+override CXX=arm-linux-gnueabihf-g++
+ASSEMBLER=$(CC)
+CPPFLAGS=--sysroot /sysroot -I/sysroot/usr/local/include
+LDFLAGS=-L/sysroot/usr/lib -L/sysroot/usr/local/lib -static
+
+override XENO_CONFIG=true # ignore it, we have to hardcode stuff below instead
+override XENOMAI_MAJOR=3
+override DEFAULT_XENOMAI_CFLAGS:=-I/sysroot/usr/xenomai/include/cobalt -I/sysroot/usr/xenomai/include -march=armv7-a -D_GNU_SOURCE -D_REENTRANT -fasynchronous-unwind-tables -D__COBALT__ -D__COBALT_WRAP__ \
+  -DXENOMAI_SKIN_posix -DXENOMAI_MAJOR=3
+override DEFAULT_XENOMAI_LDFLAGS := -Wl,--no-as-needed -L/sysroot/usr/xenomai/lib -lcobalt -lmodechk -lpthread -lrt

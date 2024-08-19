@@ -17,6 +17,7 @@ rsync -avz --out-format="   %n" $BBB_ADDRESS:/usr/lib/libNE10.* /sysroot/usr/lib
 rsync -avz --out-format="   %n" $BBB_ADDRESS:/usr/lib/libmathneon.* /sysroot/usr/lib
 
 # bela
+mkdir -p ./sysroot/root/Bela/projects
 mkdir -p ./sysroot/root/Bela/include
 mkdir -p ./sysroot/root/Bela/lib
 rsync -avz --out-format="   %n" $BBB_ADDRESS:/root/Bela/libraries /sysroot/root/Bela

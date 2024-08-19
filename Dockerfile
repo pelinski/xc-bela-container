@@ -13,18 +13,17 @@ RUN ./build_packages.sh && rm build_packages.sh
 
 COPY scripts/build_env.sh ./
 RUN ./build_env.sh && rm build_env.sh
+COPY CustomMakefile/CustomMakefileTop.in /sysroot/root/Bela/
 
 COPY scripts/build_libs.sh ./
 RUN ./build_libs.sh && rm build_libs.sh
 
-COPY CustomMakefile/* /tmp/
-COPY scripts/build_libbelafull.sh ./
-RUN ./build_libbelafull.sh && rm build_libbelafull.sh && rm  tmp/CustomMakefile*
-
 COPY scripts/build_bela.sh ./
 RUN ./build_bela.sh && rm build_bela.sh && rm build_settings
 
-WORKDIR /workspace
+COPY example-project/* /sysroot/root/Bela/projects/basic/
+
+WORKDIR /sysroot/root/
 COPY Toolchain.cmake ./
 
 CMD /bin/bash

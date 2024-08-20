@@ -75,6 +75,9 @@ You can build the docker image using (it will take a while):
 docker build -t xc-bela .
 ```
 
+*If you get library-related errors, run this `ssh root@192.168.7.2 -t cd Bela && make coreclean && make -f Makefile.libraries all` and try building the docker image again.*
+
+
 Once the image is built is built you can start a container with:
 
 ```bash

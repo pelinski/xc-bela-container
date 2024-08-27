@@ -52,16 +52,17 @@ set(EXE_NAME ${PROJECT_NAME})
 
 file(GLOB SRC_FILES *.cpp)
 
-# If main.cpp is not found, append default_main.cpp
-list(FIND SRC_FILES main.cpp main_index)
-if(main_index EQUAL -1)
-    list(APPEND SRC_FILES ${BELA_ROOT}/core/default_main.cpp)
+# Check if main.cpp exists in the current directory
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
+    list(APPEND SRC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
+else()
+    list(APPEND SRC_FILES "/sysroot/root/Bela/core/default_main.cpp")
 endif()
 
 add_executable(${EXE_NAME} ${SRC_FILES})
 
 target_include_directories(
-    ${EXE_NAME} PRIVATE ${BELA_ROOT} ${BELA_ROOT}/include
+    ${EXE_NAME} PRIVATE ${BELA_ROOT} ${BELA_ROOT}/include ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries(

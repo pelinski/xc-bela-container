@@ -2,6 +2,8 @@
 
 Docker image for [Bela](https://bela.io/) development and cross-compilation. Uses GCC 10, CMake and Make for a fast and modular build. By containerizing the cross-compilation toolchain, Bela code can be written and compiled on any host OS that can run Docker, and is compiled much faster and with more flexibility than in the Bela IDE.
 
+A tutorial using this cross-compiler for recording datasets and running torch models on Bela can be found [here](https://github.com/pelinski/pybela-pytorch-xc-tutorial)
+
 ## Basic usage
 
 ### Starting the container
